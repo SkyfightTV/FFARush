@@ -1,0 +1,6 @@
+name: FFARush
+main: fr.skyfighttv.ffarush.Main
+version: "1.0"
+api-version: 1.8.8
+commands:
+  ffarush:

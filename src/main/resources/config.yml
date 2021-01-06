@@ -1,0 +1,55 @@
+Config:
+  Tnt:
+    CanBreakBlocks: [1, 2]
+    Time: 5 #secondes
+  AutoDelete:
+    Blocks: [1]
+    Time: 10 #Secondes
+  TntFly:
+    MultiplyForceVelocity: 1.5
+  Scoreboard:
+    Update: 1 #Secondes
+    Title: "C'est un title"
+    Lignes: ["§4Ligne 1", "  ", "Ligne 2", "    ", "K/M/R", "%KILLS%/%MORTS%/%RATIO%"]
+  Kill:
+    Command: "spawn %PLAYER%"
+  Game:
+    TimeInvincibility: 5 #Secondes
+  KitsMenu:
+    Title: "Kits"
+    Size: 27
+  RespawnDeath:
+    World: world
+    X: 0
+    Y: 100
+    Z: 0
+  Lobby:
+    StartItem:
+      Material: DIAMOND_AXE
+      Title: "Start Game"
+      Lore: []
+      Location: 4
+      Command: "ffarush start"
+    KitsItem:
+      Material: CHEST
+      Title: "Kits"
+      Lore: []
+      Location: 5
+      Command: "ffarush kits"
+Permissions:
+  HelpStaff: "ffarush.help.staff"
+  SetSpawn: "ffarush.setspawn"
+  SetKit: "ffarush.setkit"
+Messages:
+  FFARushNotFullCommandPlayer: "/ffarush <start/leave/kits>"
+  FFARushNotFullCommandStaff: "/ffarush <start/setspawn/leave/setkit/kits>"
+  FFARushNotFullCommandSetSpawn: "/ffarush setspawn <numéro du spawn>"
+  FFARushNotFullCommandSetKit: "/ffarush setkit <Nom du Kit>"
+  FFARushSetSpawnDontHavePermission: "Tu n'as pas la permission d'éxecuter cette commande !"
+  FFARushSetKitDontHavePermission: "Tu n'as pas la permission d'éxécuter cette command !"
+  FFARushSuccessSetSpawn: "Tu viens de d'ajouter un spawn !"
+  FFARushSuccessSetKit: "Tu viens d'ajouter un kit !"
+  FFARushNoneKits: "Il n'y a aucun kits !"
+  FFARushCantBecauseAlreadyOnGame: "Tu es déjà en jeux !"
+  FFARushSuccessSetLobby: "Tu viens de set le nouveau lobby !"
+  FFARushSuccessSelectKit: "Tu viens avec succès de sélectionner ton kit !"
