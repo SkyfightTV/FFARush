@@ -1,10 +1,7 @@
 package fr.skyfighttv.ffarush.Listeners;
 
-import fr.skyfighttv.ffarush.Main;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -15,13 +12,12 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
-public class TntDamage implements Listener {
-
-    private FileConfiguration config = Main.getInstance().getConfig();
-
+public class Tnt implements Listener {
     @EventHandler
     public void onTnt(EntityExplodeEvent event) {
         if(event.getEntity().getType().equals(EntityType.PRIMED_TNT)) {
+            //YamlConfiguration config = FileManager.getValues().get(Files.Config);
+
             for(Block block : event.blockList()) {
                 if(block.getType().equals(Material.TNT)) {
                     block.setType(Material.AIR);

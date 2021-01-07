@@ -14,7 +14,7 @@ import java.io.File;
 public class PlaceBlock implements Listener {
 
     @EventHandler
-    public void onPlace(final BlockPlaceEvent event) {
+    public void onPlace(BlockPlaceEvent event) {
 
         File playerfile = new File(Main.getInstance().getDataFolder() + "/Players/" + event.getPlayer().getUniqueId() + ".yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerfile);

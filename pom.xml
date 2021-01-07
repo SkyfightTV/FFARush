@@ -19,6 +19,14 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>15</source>
+                    <target>15</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <repositories>
@@ -31,7 +39,7 @@
         <dependency>
             <groupId>Minecraft</groupId>
             <artifactId>Spigot</artifactId>
-            <version>1.8.8</version>
+            <version>1.16.4</version>
         </dependency>
     </dependencies>
 </project>

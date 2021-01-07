@@ -1,12 +1,14 @@
 package fr.skyfighttv.ffarush.Addons;
 
-import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import net.minecraft.server.v1_16_R3.*;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
+import static net.minecraft.server.v1_16_R3.PacketPlayOutScoreboardScore.*;
 
 /**
  * @author zyuiop
@@ -141,7 +143,7 @@ public class ScoreboardSign {
 
         int score = (15 - line);
         VirtualTeam val = getOrCreateTeam(line);
-        for (Packet packet : val.sendLine())
+        for (PacketPlayOutScoreboardTeam packet : val.sendLine())
             getPlayer().sendPacket(packet);
         getPlayer().sendPacket(sendScore(val.getCurrentPlayer(), score));
         val.reset();
@@ -189,12 +191,12 @@ public class ScoreboardSign {
         PacketPlayOutScoreboardScore packet = new PacketPlayOutScoreboardScore(line);
         setField(packet, "b", player.getName());
         setField(packet, "c", score);
-        setField(packet, "d", PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE);
+        setField(packet, "d", EnumScoreboardAction.CHANGE);
 
         return packet;
     }
 
-    private Packet removeLine(String line) {
+    private Packet<?> removeLine(String line) {
         return new PacketPlayOutScoreboardScore(line);
     }
 
