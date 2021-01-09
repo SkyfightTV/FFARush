@@ -34,11 +34,20 @@
             <id>Files</id>
             <url>https://raw.github.com/SKyfightTV/Files/master/</url>
         </repository>
+        <repository>
+            <id>Files</id>
+            <url>https://raw.github.com/ChadOWGit/Dependencies/Plugin/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
             <groupId>Minecraft</groupId>
             <artifactId>Spigot</artifactId>
+            <version>1.16.4</version>
+        </dependency>
+        <dependency>
+            <groupId>Plugin</groupId>
+            <artifactId>CInventory</artifactId>
             <version>1.16.4</version>
         </dependency>
     </dependencies>

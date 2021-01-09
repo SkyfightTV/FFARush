@@ -74,4 +74,13 @@ public class PlayersManager {
     public static HashMap<Player, YamlConfiguration> getPlayers() {
         return playersFiles;
     }
+
+    public static String getKit(Player player) {
+        return playersFiles.get(player).getString("Kit");
+    }
+
+    public static void setKit(Player player, String kit) throws IOException {
+        playersFiles.get(player).set("Kit", kit);
+        save(player);
+    }
 }
