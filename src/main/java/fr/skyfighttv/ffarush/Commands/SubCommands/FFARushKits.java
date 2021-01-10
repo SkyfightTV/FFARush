@@ -17,7 +17,7 @@ public class FFARushKits {
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
         YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
-        CInventory inventory = new CInventory(config.getInt("Config.KitsMenu.Size"), config.getString("Config.KitsMenu.Title"));
+        CInventory inventory = new CInventory(27, "Kit menu");
 
         for (String kits : kitsConfig.getKeys(false)) {
             CItem item = new CItem(new ItemCreator(Material.getMaterial(kitsConfig.getString(kits + ".ItemMenu")), 0)
