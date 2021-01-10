@@ -31,28 +31,29 @@ public class PlayersManager {
     }
 
     public static boolean create(Player player) throws IOException {
-        File playerFile = new File(Main.getInstance().getDataFolder() + "/Players/" + player.getName() + ".yml");
+        if (!playersFiles.containsKey(player)) {
+            File playerFile = new File(Main.getInstance().getDataFolder() + "/Players/" + player.getName() + ".yml");
 
-        if (!playerFile.exists()) {
-            InputStream fileStream = Main.getInstance().getResource(Files.PlayerFile + ".yml");
-            byte[] buffer = new byte[fileStream.available()];
-            fileStream.read(buffer);
+            if (!playerFile.exists()) {
+                InputStream fileStream = Main.getInstance().getResource(Files.PlayerFile + ".yml");
+                byte[] buffer = new byte[fileStream.available()];
+                fileStream.read(buffer);
 
-            playerFile.createNewFile();
-            OutputStream outStream = new FileOutputStream(playerFile);
-            outStream.write(buffer);
+                playerFile.createNewFile();
+                OutputStream outStream = new FileOutputStream(playerFile);
+                outStream.write(buffer);
 
-            YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerFile);
+                YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerFile);
 
-            yamlConfiguration.set("UUID", player.getUniqueId());
+                yamlConfiguration.set("UUID", player.getUniqueId());
 
-            yamlConfiguration.save(playerFile);
+                yamlConfiguration.save(playerFile);
 
-            playersFiles.put(player, yamlConfiguration);
-            return true;
-        } else {
-            return false;
+                playersFiles.put(player, yamlConfiguration);
+                return true;
+            }
         }
+        return false;
     }
 
     public static void save(Player player) throws IOException {
@@ -81,6 +82,24 @@ public class PlayersManager {
 
     public static void setKit(Player player, String kit) throws IOException {
         playersFiles.get(player).set("Kit", kit);
+        save(player);
+    }
+
+    public static String getDeaths(Player player) {
+        return playersFiles.get(player).getString("Morts");
+    }
+
+    public static void addDeath(Player player, Integer number) throws IOException {
+        playersFiles.get(player).set("Morts", playersFiles.get(player).getInt("Morts") +  number);
+        save(player);
+    }
+
+    public static String getKills(Player player) {
+        return playersFiles.get(player).getString("Kit");
+    }
+
+    public static void addKills(Player player, Integer number) throws IOException {
+        playersFiles.get(player).set("Kills", playersFiles.get(player).getInt("Kills") +  number);
         save(player);
     }
 }
