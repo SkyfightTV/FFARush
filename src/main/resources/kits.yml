@@ -10,7 +10,7 @@ default:
     - ==: org.bukkit.inventory.ItemStack
       v: 2584
       type: TNT
-      amount: 16
+      amount: 64
     - ==: org.bukkit.inventory.ItemStack
       v: 2584
       type: FLINT_AND_STEEL
@@ -49,16 +49,6 @@ default:
     - ==: org.bukkit.inventory.ItemStack
       v: 2584
       type: IRON_BOOTS
-    - ==: org.bukkit.inventory.ItemStack
-      v: 2584
-      type: IRON_LEGGINGS
-    - ==: org.bukkit.inventory.ItemStack
-      v: 2584
-      type: IRON_CHESTPLATE
-    - ==: org.bukkit.inventory.ItemStack
-      v: 2584
-      type: IRON_HELMET
-    - null
   ArmorContent:
     - ==: org.bukkit.inventory.ItemStack
       v: 2584
