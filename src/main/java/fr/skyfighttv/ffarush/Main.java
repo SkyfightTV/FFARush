@@ -77,6 +77,7 @@ public class Main extends JavaPlugin {
         for (Listener listener : listeners)
             getServer().getPluginManager().registerEvents(listener, this);
         System.out.println(ANSI_CYAN + "Loading of the finalized plugin." + ANSI_RESET);
+        System.out.println(" ");
     }
 
     @Override
