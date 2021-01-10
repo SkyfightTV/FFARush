@@ -1,12 +1,32 @@
-FFARushNotFullCommandPlayer: "/ffarush <start/leave/kits>"
-FFARushNotFullCommandStaff: "/ffarush <start/setspawn/leave/setkit/kits>"
-FFARushNotFullCommandSetSpawn: "/ffarush setspawn <numéro du spawn>"
-FFARushNotFullCommandSetKit: "/ffarush setkit <Nom du Kit>"
-FFARushSetSpawnDontHavePermission: "Tu n'as pas la permission d'éxecuter cette commande !"
-FFARushSetKitDontHavePermission: "Tu n'as pas la permission d'éxécuter cette command !"
-FFARushSuccessSetSpawn: "Tu viens de d'ajouter un spawn !"
-FFARushSuccessSetKit: "Tu viens d'ajouter un kit !"
-FFARushNoneKits: "Il n'y a aucun kits !"
-FFARushCantBecauseAlreadyOnGame: "Tu es déjà en jeux !"
-FFARushSuccessSetLobby: "Tu viens de set le nouveau lobby !"
-FFARushSuccessSelectKit: "Tu viens avec succès de sélectionner ton kit !"
+##################################################################################
+#$$\        $$$$$$\  $$\   $$\  $$$$$$\  $$\   $$\  $$$$$$\   $$$$$$\  $$$$$$$$\ #
+#$$ |      $$  __$$\ $$$\  $$ |$$  __$$\ $$ |  $$ |$$  __$$\ $$  __$$\ $$  _____|#
+#$$ |      $$ /  $$ |$$$$\ $$ |$$ /  \__|$$ |  $$ |$$ /  $$ |$$ /  \__|$$ |      #
+#$$ |      $$$$$$$$ |$$ $$\$$ |$$ |$$$$\ $$ |  $$ |$$$$$$$$ |$$ |$$$$\ $$$$$\    #
+#$$ |      $$  __$$ |$$ \$$$$ |$$ |\_$$ |$$ |  $$ |$$  __$$ |$$ |\_$$ |$$  __|   #
+#$$ |      $$ |  $$ |$$ |\$$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      #
+#$$$$$$$$\ $$ |  $$ |$$ | \$$ |\$$$$$$  |\$$$$$$  |$$ |  $$ |\$$$$$$  |$$$$$$$$\ #
+#\________|\__|  \__|\__|  \__| \______/  \______/ \__|  \__| \______/ \________|#
+##################################################################################
+#In this file, you can modify all the texts sent by the plugin
+#To reload this file /ffarush reload
+
+#Messages sent when the command is not complete
+NotFullCommandPlayer: "/ffarush <start/leave/kits>"
+NotFullCommandStaff: "/ffarush <start/setspawn/leave/setkit/kits>"
+NotFullCommandSetSpawn: "/ffarush setspawn <numéro du spawn>"
+NotFullCommandSetKit: "/ffarush setkit <Nom du Kit>"
+
+#Message sent when the player has't the permission
+NoPermission: "Tu n'as pas la permission d'éxecuter cette commande !"
+#Message sent when the player is already on game
+AlreadyOnGame: "Tu es déjà en jeux !"
+#Message sent when no kits have been configured
+NoneKits: "Il n'y a aucun kits !"
+
+#Messages sent when the command is a success
+SuccessSetSpawn: "Tu viens de d'ajouter un spawn !"
+SuccessSetKit: "Tu viens d'ajouter un kit !"
+SuccessSetLobby: "Tu viens de set le nouveau lobby !"
+SuccessSelectKit: "Tu viens avec succès de sélectionner ton kit !"
+SuccessReload: "Tu viens de reload le plugin !"

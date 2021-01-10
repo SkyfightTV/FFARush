@@ -13,15 +13,17 @@ import java.util.UUID;
 public class PlayersManager {
     private static HashMap<Player, YamlConfiguration> playersFiles;
 
-    public PlayersManager() throws IOException {
+    public PlayersManager(){
         playersFiles = new HashMap<>();
+
+        new File(Main.getInstance().getDataFolder() + "/Players/").mkdir();
 
         for (File files : Objects.requireNonNull(new File(Main.getInstance().getDataFolder() + "/Players/").listFiles())) {
             YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(files);
             playersFiles.put(Bukkit.getOfflinePlayer(UUID.fromString(Objects.requireNonNull(yamlConfiguration.getString("UUID")))).getPlayer(), yamlConfiguration);
         }
 
-        Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getInstance(), () -> {
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(), () -> {
             try {
                 saveAll();
             } catch (IOException e) {
@@ -35,17 +37,14 @@ public class PlayersManager {
             File playerFile = new File(Main.getInstance().getDataFolder() + "/Players/" + player.getName() + ".yml");
 
             if (!playerFile.exists()) {
-                InputStream fileStream = Main.getInstance().getResource(Files.PlayerFile + ".yml");
-                byte[] buffer = new byte[fileStream.available()];
-                fileStream.read(buffer);
-
                 playerFile.createNewFile();
-                OutputStream outStream = new FileOutputStream(playerFile);
-                outStream.write(buffer);
 
                 YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerFile);
 
-                yamlConfiguration.set("UUID", player.getUniqueId());
+                yamlConfiguration.set("UUID", player.getUniqueId().toString());
+                yamlConfiguration.createSection("Morts");
+                yamlConfiguration.createSection("Kills");
+                yamlConfiguration.set("Kit", "default");
 
                 yamlConfiguration.save(playerFile);
 

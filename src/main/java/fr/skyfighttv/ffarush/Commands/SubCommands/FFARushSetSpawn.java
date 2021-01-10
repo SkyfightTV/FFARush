@@ -14,6 +14,6 @@ public class FFARushSetSpawn {
 
         FileManager.save(Files.Spawn);
 
-        player.sendMessage(config.getString("Messages.FFARushSuccessSetSpawn"));
+        player.sendMessage(langConfig.getString("SuccessSetSpawn"));
     }
 }

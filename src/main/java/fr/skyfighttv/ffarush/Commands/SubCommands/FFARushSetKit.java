@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class FFARushSetKit {
     public FFARushSetKit(Player player, String kit) {
-
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
         YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
 
@@ -21,6 +20,6 @@ public class FFARushSetKit {
 
         FileManager.save(Files.Kits);
 
-        player.sendMessage(config.getString("Messages.FFARushSuccessSetKit"));
+        player.sendMessage(langConfig.getString("SuccessSetKit"));
     }
 }

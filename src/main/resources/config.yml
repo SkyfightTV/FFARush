@@ -27,31 +27,19 @@ ColorConsole: true
 # \____\___/|_| \_|_|   |___\____|\___/|_| \_\/_/   \_\_| |___\___/|_| \_|#
 ###########################################################################
 #After update, restart the server
-Tnt:
-  CanBreakBlocks: [1, 2]
-  Time: 5 #secondes
-AutoDelete:
-  Blocks: [1]
-  Time: 10 #Secondes
-TntFly:
-  MultiplyForceVelocity: 1.5
-Scoreboard:
-  Update: 1 #Secondes
-  Title: "C'est un title"
-  Lignes: ["§4Ligne 1", "  ", "Ligne 2", "    ", "K/M/R", "%KILLS%/%MORTS%/%RATIO%"]
-Kill:
-  Command: "spawn %PLAYER%"
+
+#Setting up the game
 Game:
-  TimeInvincibility: 5 #Secondes
-KitsMenu:
-  Title: "Kits"
-  Size: 27
-RespawnDeath:
-  World: world
-  X: 0
-  Y: 100
-  Z: 0
-Lobby:
+  #Time after spawn when the player is invincible in second
+  Invincibility: 5
+  #Command execute when a player was kill by an other player
+  #Variables:
+  #%victim% = player killed by the damager
+  #%damager% = player who killed the victim
+  KillCommand: "eco give %damager% 150"
+
+#Setting up customs items in the lobby
+LobbyItems:
   StartItem:
     Material: DIAMOND_AXE
     Title: "Start Game"
@@ -64,3 +52,23 @@ Lobby:
     Lore: []
     Location: 5
     Command: "ffarush kits"
+
+#Config the Tnt
+Tnt:
+  #List of all blocks broken by the tnt
+  BlocksBreakable:
+    - STONE
+    - DIRT
+  #Time before explosion in second
+  Time: 5
+  #Propulsive power of the tnt in relation to the players
+  PowerMultiplier: 1.5
+
+#Config the AutoDeleter which allows you to automatically delete some blocks you own
+AutoDelete:
+  #List of all blocks can be delete
+  Blocks:
+    - STONE
+    - DIRT
+  #Time before deleting block in second
+  Time: 10

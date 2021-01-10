@@ -20,12 +20,13 @@ public class FFARushPlay {
         YamlConfiguration spawnConfig = FileManager.getValues().get(Files.Spawn);
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
         YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
-        //YamlConfiguration config = FileManager.getValues().get(Files.Config);
+        YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
         if(!FFARush.inGamePlayers.contains(player)) {
             if(spawnConfig.getConfigurationSection("Spawns").getKeys(false).isEmpty()) return;
 
-            Location location = (Location) spawnConfig.get(new ArrayList<>(spawnConfig.getConfigurationSection("Spawns").getKeys(false)).get(new Random().nextInt(spawnConfig.getConfigurationSection("Spawns").getKeys(false).size())));
+            int random = new Random().nextInt(spawnConfig.getConfigurationSection("Spawns").getKeys(false).size());
+            Location location = (Location) spawnConfig.get("Spawns." + new ArrayList<>(spawnConfig.getConfigurationSection("Spawns").getKeys(false)).get(random));
             assert location != null;
 
             player.teleport(location);
@@ -42,15 +43,13 @@ public class FFARushPlay {
                 player.getInventory().setContents((ItemStack[]) kitsConfig.get("default.Content"));
                 player.getInventory().setArmorContents((ItemStack[]) kitsConfig.get("default.ArmorContent"));
             } else {
-                player.getInventory().setContents((ItemStack[]) kitsConfig.get(PlayersManager.getKit(player) + ".Content");
+                player.getInventory().setContents((ItemStack[]) kitsConfig.get(PlayersManager.getKit(player) + ".Content"));
                 player.getInventory().setContents((ItemStack[]) kitsConfig.get(PlayersManager.getKit(player) + ".ArmorContent"));
             }
 
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), () -> {
-                FFARush.invinciblePlayers.remove(player);
-            }, (config.getInt("Config.Game.TimeInvincibility") * 20));
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), () -> FFARush.invinciblePlayers.remove(player), (config.getInt("Game.Invincibility") * 20));
         } else {
-            player.sendMessage(config.getString("Messages.FFARushCantBecauseAlreadyOnGame"));
+            player.sendMessage(langConfig.getString("AlreadyOnGame"));
         }
     }
 }

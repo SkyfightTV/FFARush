@@ -3,3 +3,5 @@ main: fr.skyfighttv.ffarush.Main
 version: 1.0
 commands:
   ffarush:
+    aliases:
+      - ffa

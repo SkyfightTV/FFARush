@@ -12,21 +12,17 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import java.io.File;
-
 public class BlockListeners implements Listener {
     @EventHandler
     public void onPlace(BlockPlaceEvent event) {
         if(FFARush.inGamePlayers.contains(event.getPlayer())) {
             YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
-            if (.getIntegerList("Config.AutoDelete.Blocks").contains(event.getBlock().getType().getId())) {
+            if (config.getStringList("AutoDelete.Blocks").contains(event.getBlock().getType().name())) {
                 event.setCancelled(true);
                 Block block = event.getBlockPlaced().getLocation().getBlock();
                 block.setType(event.getBlock().getType());
-                Bukkit.getScheduler().runTaskLater(Main.getInstance(), () -> {
-                    event.getBlockPlaced().setType(Material.AIR);
-                }, (Main.getInstance().getConfig().getInt("Config.AutoDelete.Time") * 20));
+                Bukkit.getScheduler().runTaskLater(Main.getInstance(), () -> event.getBlockPlaced().setType(Material.AIR), (config.getInt("AutoDelete.Time") * 20));
             }
         }
     }

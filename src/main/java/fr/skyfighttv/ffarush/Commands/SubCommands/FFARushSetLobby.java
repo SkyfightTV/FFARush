@@ -8,12 +8,12 @@ import org.bukkit.entity.Player;
 public class FFARushSetLobby {
     public FFARushSetLobby(Player player) {
         YamlConfiguration spawnConfig = FileManager.getValues().get(Files.Spawn);
-        YamlConfiguration lang = FileManager.getValues().get(Files.Lang);
+        YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
 
         spawnConfig.set("Lobby", player.getLocation());
 
         FileManager.save(Files.Spawn);
 
-        player.sendMessage(config.getString("Messages.FFARushSuccessSetLobby"));
+        player.sendMessage(langConfig.getString("SuccessSetLobby"));
     }
 }

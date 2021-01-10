@@ -17,6 +17,7 @@ public class FileManager {
             File fileRessource = new File(Main.getInstance().getDataFolder() + "/" + files.getName() + ".yml");
             if (!fileRessource.exists()) {
                 InputStream fileStream = Main.getInstance().getResource(files.getName() + ".yml");
+                assert fileStream != null;
                 byte[] buffer = new byte[fileStream.available()];
                 fileStream.read(buffer);
 
@@ -55,6 +56,11 @@ public class FileManager {
         values.put(files, YamlConfiguration.loadConfiguration(file));
     }
 
+    public static void saveAll() {
+        for (Files files : Files.values())
+            save(files);
+    }
+
     public static void reload(Files files) {
         File file = new File(Main.getInstance().getDataFolder() + "/" + files.name() + ".yml");
 
@@ -64,6 +70,11 @@ public class FileManager {
         }
 
         values.put(files, YamlConfiguration.loadConfiguration(file));
+    }
+
+    public static void reloadAll() {
+        for (Files files : Files.values())
+            reload(files);
     }
 
     public static HashMap<Files, YamlConfiguration> getValues() {

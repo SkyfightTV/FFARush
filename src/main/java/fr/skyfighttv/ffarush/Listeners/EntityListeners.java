@@ -1,6 +1,9 @@
 package fr.skyfighttv.ffarush.Listeners;
 
-import fr.skyfighttv.ffarush.Main;
+import fr.skyfighttv.ffarush.Commands.FFARush;
+import fr.skyfighttv.ffarush.Utils.FileManager;
+import fr.skyfighttv.ffarush.Utils.Files;
+import fr.skyfighttv.ffarush.Utils.PlayersManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -9,53 +12,42 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-import java.io.File;
 import java.io.IOException;
 
 public class EntityListeners implements Listener {
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event) throws IOException {
-        if(event.getEntity() instanceof Player) {
-            File playerfile = new File(Main.getInstance().getDataFolder() + "/Players/" + event.getEntity().getUniqueId() + ".yml");
-            YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerfile);
-
-            if (!yamlConfiguration.getBoolean("InGame")) {
-                if (!event.getEntity().isOp()) {
-                    event.setCancelled(true);
-                }
-                return;
-            }
-        }
-        if(event.getEntity() instanceof Player && event.getDamager() instanceof TNTPrimed) {
-            event.setCancelled(true);
-        } else if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            Player player = Bukkit.getPlayer(((Player) event.getEntity()).getDisplayName());
-            Player damager = Bukkit.getPlayer(((Player) event.getDamager()).getDisplayName());
-
-            File playerfile = new File(Main.getInstance().getDataFolder() + "/Players/" + damager.getUniqueId() + ".yml");
-            YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(playerfile);
-
-            if(yamlConfiguration.getBoolean("Invincibilite")) {
+        if (event.getEntity() instanceof Player) {
+            if (event.getDamager() instanceof TNTPrimed) {
                 event.setCancelled(true);
-                return;
-            }
+            } else if (event.getDamager() instanceof Player) {
+                Player player = (Player) event.getEntity();
+                Player damager = (Player) event.getDamager();
 
-            if(player.getHealth() - event.getFinalDamage() < 1) {
-                if(damager.getHealth() > 15.0) {
-                    damager.setHealth(20.0);
-                } else {
-                    damager.setHealth(damager.getHealth() + 10);
+                YamlConfiguration config = FileManager.getValues().get(Files.Config);
+                YamlConfiguration playerConfig = PlayersManager.getPlayer(player);
+
+                if (FFARush.invinciblePlayers.contains(player)
+                        || FFARush.invinciblePlayers.contains(damager)) {
+                    event.setCancelled(true);
+                    return;
                 }
-                String message = config.getString("Config.Kill.Command");
-                message = message.replaceAll("%PLAYER%", damager.getDisplayName());
-                Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), message);
 
-                yamlConfiguration.set("Kills", yamlConfiguration.getInt("Kills") + 1);
+                if (player.getHealth() - event.getFinalDamage() < 1) {
+                    if (damager.getHealth() > 15.0) {
+                        damager.setHealth(20.0);
+                    } else {
+                        damager.setHealth(damager.getHealth() + 10);
+                    }
 
-                yamlConfiguration.save(playerfile);
+                    String message = config.getString("Game.KillCommand")
+                            .replaceAll("%damager%", damager.getName())
+                            .replaceAll("%victim%", player.getName());
+                    Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), message);
 
+                    PlayersManager.addKills(damager, 1);
+                }
             }
         }
     }
-
 }

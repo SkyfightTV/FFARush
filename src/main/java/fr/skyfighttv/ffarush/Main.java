@@ -1,16 +1,13 @@
 package fr.skyfighttv.ffarush;
 
 import fr.skyfighttv.ffarush.Commands.FFARush;
+import fr.skyfighttv.ffarush.Commands.FFARushTab;
 import fr.skyfighttv.ffarush.Listeners.BlockListeners;
 import fr.skyfighttv.ffarush.Listeners.EntityListeners;
 import fr.skyfighttv.ffarush.Listeners.PlayerListeners;
 import fr.skyfighttv.ffarush.Utils.FileManager;
 import fr.skyfighttv.ffarush.Utils.PlayersManager;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -53,6 +50,8 @@ public class Main extends JavaPlugin {
             ANSI_WHITE = "\u001B[37m";
         }
 
+        new PlayersManager();
+
         try {
             new FileManager();
         } catch (IOException e) {
@@ -60,6 +59,7 @@ public class Main extends JavaPlugin {
         }
 
         getCommand("ffarush").setExecutor(new FFARush());
+        getCommand("ffarush").setTabCompleter(new FFARushTab());
 
         for (Listener listener : listeners)
             getServer().getPluginManager().registerEvents(listener, this);
@@ -68,6 +68,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        FileManager.saveAll();
         try {
             PlayersManager.saveAll();
         } catch (IOException e) {

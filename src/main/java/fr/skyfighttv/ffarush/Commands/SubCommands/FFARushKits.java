@@ -25,14 +25,15 @@ public class FFARushKits {
                     .setLores(kitsConfig.getStringList(kits + ".Lore")));
             item.addEvent((cInventory, cItem, player1, clickContext) -> {
                 if (kitsConfig.getKeys(false).contains(cItem.getName())) {
-                    if (kitsConfig.getString(cItem.getName() + ".Permission").equals("N/A") || player.hasPermission(kitsConfig.getString(cItem.getName() + ".Permission"))) {
+                    if (kitsConfig.getString(cItem.getName() + ".Permission").equals("N/A")
+                            || player.hasPermission(kitsConfig.getString(cItem.getName() + ".Permission"))) {
                         try {
                             PlayersManager.setKit(player, cItem.getName());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
 
-                        player.sendMessage("dqdqdq"dqdqdqd);
+                        player.sendMessage(FileManager.getValues().get(Files.Lang).getString("SuccessSelectKit"));
 
                         inventory.close(player);
                     }
@@ -40,7 +41,6 @@ public class FFARushKits {
             });
             inventory.addElement(item);
         }
-
         inventory.open(player);
     }
 }

@@ -4,7 +4,6 @@ public enum Files {
     Config("config"),
     Kits("kits"),
     Lang("lang"),
-    PlayerFile("PlayerFile"),
     Spawn("spawn");
 
     private final String name;

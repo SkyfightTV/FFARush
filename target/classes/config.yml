@@ -1,55 +1,74 @@
-Config:
-  Tnt:
-    CanBreakBlocks: [1, 2]
-    Time: 5 #secondes
-  AutoDelete:
-    Blocks: [1]
-    Time: 10 #Secondes
-  TntFly:
-    MultiplyForceVelocity: 1.5
-  Scoreboard:
-    Update: 1 #Secondes
-    Title: "C'est un title"
-    Lignes: ["§4Ligne 1", "  ", "Ligne 2", "    ", "K/M/R", "%KILLS%/%MORTS%/%RATIO%"]
-  Kill:
-    Command: "spawn %PLAYER%"
-  Game:
-    TimeInvincibility: 5 #Secondes
-  KitsMenu:
+########################################################################
+#$$$$$$$$\ $$$$$$$$\  $$$$$$\  $$$$$$$\  $$\   $$\  $$$$$$\  $$\   $$\ #
+#$$  _____|$$  _____|$$  __$$\ $$  __$$\ $$ |  $$ |$$  __$$\ $$ |  $$ |#
+#$$ |      $$ |      $$ /  $$ |$$ |  $$ |$$ |  $$ |$$ /  \__|$$ |  $$ |#
+#$$$$$\    $$$$$\    $$$$$$$$ |$$$$$$$  |$$ |  $$ |\$$$$$$\  $$$$$$$$ |#
+#$$  __|   $$  __|   $$  __$$ |$$  __$$< $$ |  $$ | \____$$\ $$  __$$ |#
+#$$ |      $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |$$\   $$ |$$ |  $$ |#
+#$$ |      $$ |      $$ |  $$ |$$ |  $$ |\$$$$$$  |\$$$$$$  |$$ |  $$ |#
+#\__|      \__|      \__|  \__|\__|  \__| \______/  \______/ \__|  \__|#
+########################################################################
+#This plugin is made by SkyfightTV for everyone
+#It works only in Spigot/Bukkit 1.16.4
+#This plugin can't be reloaded
+
+#DebugMode sends a message to the console each time an event is called
+#/!\ The debugmode can spam the console /!\
+DebugMode: false
+
+#Enable or disable color message in the console
+ColorConsole: true
+
+###########################################################################
+#  ____ ___  _   _ _____ ___ ____ _   _ ____      _  _____ ___ ___  _   _ #
+# / ___/ _ \| \ | |  ___|_ _/ ___| | | |  _ \    / \|_   _|_ _/ _ \| \ | |#
+#| |  | | | |  \| | |_   | | |  _| | | | |_) |  / _ \ | |  | | | | |  \| |#
+#| |__| |_| | |\  |  _|  | | |_| | |_| |  _ <  / ___ \| |  | | |_| | |\  |#
+# \____\___/|_| \_|_|   |___\____|\___/|_| \_\/_/   \_\_| |___\___/|_| \_|#
+###########################################################################
+#After update, restart the server
+
+#Setting up the game
+Game:
+  #Time after spawn when the player is invincible in second
+  Invincibility: 5
+  #Command execute when a player was kill by an other player
+  #Variables:
+  #%victim% = player killed by the damager
+  #%damager% = player who killed the victim
+  KillCommand: "eco give %damager% 150"
+
+#Setting up customs items in the lobby
+LobbyItems:
+  StartItem:
+    Material: DIAMOND_AXE
+    Title: "Start Game"
+    Lore: []
+    Location: 4
+    Command: "ffarush play"
+  KitsItem:
+    Material: CHEST
     Title: "Kits"
-    Size: 27
-  RespawnDeath:
-    World: world
-    X: 0
-    Y: 100
-    Z: 0
-  Lobby:
-    StartItem:
-      Material: DIAMOND_AXE
-      Title: "Start Game"
-      Lore: []
-      Location: 4
-      Command: "ffarush start"
-    KitsItem:
-      Material: CHEST
-      Title: "Kits"
-      Lore: []
-      Location: 5
-      Command: "ffarush kits"
-Permissions:
-  HelpStaff: "ffarush.help.staff"
-  SetSpawn: "ffarush.setspawn"
-  SetKit: "ffarush.setkit"
-Messages:
-  FFARushNotFullCommandPlayer: "/ffarush <start/leave/kits>"
-  FFARushNotFullCommandStaff: "/ffarush <start/setspawn/leave/setkit/kits>"
-  FFARushNotFullCommandSetSpawn: "/ffarush setspawn <numéro du spawn>"
-  FFARushNotFullCommandSetKit: "/ffarush setkit <Nom du Kit>"
-  FFARushSetSpawnDontHavePermission: "Tu n'as pas la permission d'éxecuter cette commande !"
-  FFARushSetKitDontHavePermission: "Tu n'as pas la permission d'éxécuter cette command !"
-  FFARushSuccessSetSpawn: "Tu viens de d'ajouter un spawn !"
-  FFARushSuccessSetKit: "Tu viens d'ajouter un kit !"
-  FFARushNoneKits: "Il n'y a aucun kits !"
-  FFARushCantBecauseAlreadyOnGame: "Tu es déjà en jeux !"
-  FFARushSuccessSetLobby: "Tu viens de set le nouveau lobby !"
-  FFARushSuccessSelectKit: "Tu viens avec succès de sélectionner ton kit !"
+    Lore: []
+    Location: 5
+    Command: "ffarush kits"
+
+#Config the Tnt
+Tnt:
+  #List of all blocks broken by the tnt
+  BlocksBreakable:
+    - STONE
+    - DIRT
+  #Time before explosion in second
+  Time: 5
+  #Propulsive power of the tnt in relation to the players
+  PowerMultiplier: 1.5
+
+#Config the AutoDeleter which allows you to automatically delete some blocks you own
+AutoDelete:
+  #List of all blocks can be delete
+  Blocks:
+    - STONE
+    - DIRT
+  #Time before deleting block in second
+  Time: 10
