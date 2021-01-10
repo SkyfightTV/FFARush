@@ -17,13 +17,15 @@ public class PlayersManager {
 
         new File(Main.getInstance().getDataFolder() + "/Players/").mkdir();
 
+        int number = 0;
         for (File files : Objects.requireNonNull(new File(Main.getInstance().getDataFolder() + "/Players/").listFiles())) {
             if (!playersFiles.containsKey(files.getName().replaceAll(".yml", ""))) {
                 YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(files);
                 playersFiles.put(files.getName().replaceAll(".yml", ""), yamlConfiguration);
-                System.out.println(playersFiles + " / " + files.getName());
+                number++;
             }
         }
+        System.out.println(Main.ANSI_GREEN + "Loading of " + number + " player data completed." + Main.ANSI_RESET);
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(), () -> {
             try {

@@ -8,11 +8,12 @@ import java.util.HashMap;
 
 public class FileManager {
     private static HashMap<Files, YamlConfiguration> values;
-    //private static HashMap<String, File> files;
 
     public FileManager() throws IOException {
         values = new HashMap<>();
 
+        int number = 0;
+        int createdNumber = 0;
         for (Files files : Files.values()) {
             File fileRessource = new File(Main.getInstance().getDataFolder() + "/" + files.getName() + ".yml");
             if (!fileRessource.exists()) {
@@ -24,23 +25,13 @@ public class FileManager {
                 fileRessource.createNewFile();
                 OutputStream outStream = new FileOutputStream(fileRessource);
                 outStream.write(buffer);
+                createdNumber++;
             }
             values.put(files, YamlConfiguration.loadConfiguration(fileRessource));
+            number++;
         }
+        System.out.println(Main.ANSI_GREEN + createdNumber + " files created and " + number + " files loaded." + Main.ANSI_RESET);
     }
-
-    /*public static void writeInFile(File file, String text) {
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
-            bufferedWriter.write(text);
-            bufferedWriter.newLine();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Main.sendDebug(file.getName() + " was modify");
-    }*/
 
     public static void save(Files files) {
         File file = new File(Main.getInstance().getDataFolder() + "/" + files.name() + ".yml");
@@ -80,8 +71,4 @@ public class FileManager {
     public static HashMap<Files, YamlConfiguration> getValues() {
         return values;
     }
-
-    /*public static HashMap<String, File> getFiles() {
-        return files;
-    }*/
 }
