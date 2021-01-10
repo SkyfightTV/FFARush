@@ -25,7 +25,6 @@ public class EntityListeners implements Listener {
                 Player damager = (Player) event.getDamager();
 
                 YamlConfiguration config = FileManager.getValues().get(Files.Config);
-                YamlConfiguration playerConfig = PlayersManager.getPlayer(player);
 
                 if (FFARush.invinciblePlayers.contains(player)
                         || FFARush.invinciblePlayers.contains(damager)) {

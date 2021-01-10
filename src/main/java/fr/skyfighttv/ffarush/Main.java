@@ -5,6 +5,7 @@ import fr.skyfighttv.ffarush.Commands.FFARushTab;
 import fr.skyfighttv.ffarush.Listeners.BlockListeners;
 import fr.skyfighttv.ffarush.Listeners.EntityListeners;
 import fr.skyfighttv.ffarush.Listeners.PlayerListeners;
+import fr.skyfighttv.ffarush.Listeners.Tnt;
 import fr.skyfighttv.ffarush.Utils.FileManager;
 import fr.skyfighttv.ffarush.Utils.PlayersManager;
 import org.bukkit.event.Listener;
@@ -30,7 +31,8 @@ public class Main extends JavaPlugin {
     private List<Listener> listeners = new ArrayList<>(Arrays.asList(
             new BlockListeners(),
             new PlayerListeners(),
-            new EntityListeners()
+            new EntityListeners(),
+            new Tnt()
     ));
 
     @Override
@@ -68,7 +70,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        FileManager.saveAll();
         try {
             PlayersManager.saveAll();
         } catch (IOException e) {

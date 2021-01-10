@@ -43,7 +43,7 @@ public class Tnt implements Listener {
                     double Y = player.getLocation().getY() - event.getLocation().getY();
                     double Z = player.getLocation().getZ() - event.getLocation().getZ();
                     Vector vector = player.getVelocity();
-                    Vector vector1 = new Vector(X, Y, Z).multiply(config.getDouble("TntFly.PowerMultiplier"));
+                    Vector vector1 = new Vector(X, Y, Z).multiply(config.getDouble("Tnt.PowerMultiplier"));
                     vector.add(vector1);
                     player.setVelocity(vector);
                 }

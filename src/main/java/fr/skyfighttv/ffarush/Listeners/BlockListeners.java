@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockListeners implements Listener {
@@ -19,11 +20,16 @@ public class BlockListeners implements Listener {
             YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
             if (config.getStringList("AutoDelete.Blocks").contains(event.getBlock().getType().name())) {
-                event.setCancelled(true);
-                Block block = event.getBlockPlaced().getLocation().getBlock();
-                block.setType(event.getBlock().getType());
+                event.getItemInHand().setAmount(64);
                 Bukkit.getScheduler().runTaskLater(Main.getInstance(), () -> event.getBlockPlaced().setType(Material.AIR), (config.getInt("AutoDelete.Time") * 20));
             }
+        }
+    }
+
+    @EventHandler
+    private void onBreak(BlockBreakEvent event) {
+        if (FFARush.inGamePlayers.contains(event.getPlayer())) {
+            event.setCancelled(true);
         }
     }
 }
