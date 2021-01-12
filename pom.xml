@@ -4,21 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Lexaria</groupId>
+    <groupId>fr.skyfighttv</groupId>
     <artifactId>FFARush</artifactId>
     <version>1.0</version>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -35,7 +25,7 @@
             <url>https://raw.github.com/SKyfightTV/Files/master/</url>
         </repository>
         <repository>
-            <id>Files</id>
+            <id>File</id>
             <url>https://raw.github.com/ChadOWGit/Dependencies/Plugin/</url>
         </repository>
     </repositories>

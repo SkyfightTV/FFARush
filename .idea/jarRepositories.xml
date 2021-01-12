@@ -12,6 +12,11 @@
       <option name="url" value="https://raw.github.com/SKyfightTV/Files/master/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="File" />
+      <option name="name" value="File" />
+      <option name="url" value="https://raw.github.com/ChadOWGit/Dependencies/Plugin/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="Files" />
       <option name="name" value="Files" />
       <option name="url" value="https://raw.github.com/ChadOWGit/Dependencies/Plugin/" />

@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 public class FFARushSetSpawn {
-    public FFARushSetSpawn(Player player, String spawn) {
+    public static void init(Player player, String spawn) {
         YamlConfiguration spawnConfig = FileManager.getValues().get(Files.Spawn);
         YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
 

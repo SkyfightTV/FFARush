@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FFARushSetKit {
-    public FFARushSetKit(Player player, String kit) {
+    public static void init(Player player, String kit) {
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
         YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
 

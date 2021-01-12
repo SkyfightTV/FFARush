@@ -90,8 +90,8 @@ public class PlayersManager {
         save(player);
     }
 
-    public static String getDeaths(Player player) {
-        return playersFiles.get(player.getName()).getString("Morts");
+    public static int getDeaths(Player player) {
+        return playersFiles.get(player.getName()).getInt("Morts");
     }
 
     public static void addDeath(Player player, Integer number) throws IOException {
@@ -99,8 +99,8 @@ public class PlayersManager {
         save(player);
     }
 
-    public static String getKills(Player player) {
-        return playersFiles.get(player.getName()).getString("Kills");
+    public static int getKills(Player player) {
+        return playersFiles.get(player.getName()).getInt("Kills");
     }
 
     public static void addKills(Player player, Integer number) throws IOException {

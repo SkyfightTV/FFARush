@@ -1,6 +1,15 @@
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\PlaceBlock.java
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Addons\ScoreboardSign.java
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\FFARush.java
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Main.java
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\PlayerListeners.java
-D:\Java\Minecraft\[Lexaria] FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\TntDamage.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\FFARush.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\FFARushTab.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\SubCommands\FFARushSetLobby.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\BlockListeners.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Main.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\SubCommands\FFARushPlay.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Utils\PlayersManager.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\EntityListeners.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Utils\Files.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\SubCommands\FFARushKits.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\SubCommands\FFARushSetKit.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\PlayerListeners.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Listeners\Tnt.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Commands\SubCommands\FFARushSetSpawn.java
+D:\Developpement\GitHub\FFARush\src\main\java\fr\skyfighttv\ffarush\Utils\FileManager.java

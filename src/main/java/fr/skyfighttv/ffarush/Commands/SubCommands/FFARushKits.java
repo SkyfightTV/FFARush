@@ -13,9 +13,8 @@ import org.bukkit.entity.Player;
 import java.io.IOException;
 
 public class FFARushKits {
-    public FFARushKits(Player player) {
+    public static void init(Player player) {
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
-        YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
         CInventory inventory = new CInventory(27, "Kit menu");
 

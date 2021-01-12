@@ -9,7 +9,7 @@
 #\__|      \__|      \__|  \__|\__|  \__| \______/  \______/ \__|  \__|#
 ########################################################################
 #This plugin is made by SkyfightTV for everyone
-#It works only in Spigot/Bukkit 1.16.4
+#It works between spigot version 1.7 and 1.16
 #This plugin can't be reloaded
 
 #DebugMode sends a message to the console each time an event is called
@@ -18,6 +18,21 @@ DebugMode: false
 
 #Enable or disable color message in the console
 ColorConsole: true
+
+##############################################
+# __  __  ___  ____  _   _ _     _____ ____  #
+#|  \/  |/ _ \|  _ \| | | | |   | ____/ ___| #
+#| |\/| | | | | | | | | | | |   |  _| \___ \ #
+#| |  | | |_| | |_| | |_| | |___| |___ ___) |#
+#|_|  |_|\___/|____/ \___/|_____|_____|____/ #
+##############################################
+#Enable or disable modules
+
+#After update, reload the plugin or restart the server
+
+FFARush:
+  Kits: true
+  Play: true
 
 ###########################################################################
 #  ____ ___  _   _ _____ ___ ____ _   _ ____      _  _____ ___ ___  _   _ #

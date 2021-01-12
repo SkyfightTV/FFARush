@@ -23,6 +23,7 @@ public class FFARush implements CommandExecutor {
         if(sender instanceof Player) {
             Player player = (Player) sender;
             YamlConfiguration langConfig = FileManager.getValues().get(Files.Lang);
+            YamlConfiguration config = FileManager.getValues().get(Files.Config);
 
             if (args.length == 0) {
                 if (player.hasPermission("FFARush.staff")) {
@@ -34,8 +35,13 @@ public class FFARush implements CommandExecutor {
             }
 
             if(args[0].equalsIgnoreCase("play")) {
+                if (!config.getBoolean("FFARush.Play")) {
+                    player.sendMessage(langConfig.getString("CommandDisabled"));
+                    return false;
+                }
+
                 try {
-                    new FFARushPlay(player);
+                    FFARushPlay.init(player);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -50,7 +56,7 @@ public class FFARush implements CommandExecutor {
                     return false;
                 }
 
-                new FFARushSetSpawn(player, args[1]);
+                FFARushSetSpawn.init(player, args[1]);
             }
             else if(args[0].equalsIgnoreCase("setkit")) {
                 if (!player.hasPermission("FFARush.setkit")) {
@@ -62,17 +68,22 @@ public class FFARush implements CommandExecutor {
                     return false;
                 }
 
-                new FFARushSetKit(player, args[1]);
+                FFARushSetKit.init(player, args[1]);
             }
             else if (args[0].equalsIgnoreCase("kits")) {
-                new FFARushKits(player);
+                if (!config.getBoolean("FFARush.Kits")) {
+                    player.sendMessage(langConfig.getString("CommandDisabled"));
+                    return false;
+                }
+
+                FFARushKits.init(player);
             }
             else if (args[0].equalsIgnoreCase("SetLobby")) {
                 if (!player.hasPermission("FFARush.setlobby")) {
                     player.sendMessage(langConfig.getString("NoPermission"));
                     return false;
                 }
-                new FFARushSetLobby(player);
+                FFARushSetLobby.init(player);
             }
             else if (args[0].equalsIgnoreCase("reload")) {
                 if (!player.hasPermission("FFARush.reload")) {
@@ -88,6 +99,9 @@ public class FFARush implements CommandExecutor {
                 }
 
                 player.sendMessage(langConfig.getString("SuccessReload"));
+            }
+            else if (args[0].equalsIgnoreCase("stats")) {
+                FFARushStats.init(player);
             }
         }
         return false;

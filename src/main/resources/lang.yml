@@ -23,6 +23,8 @@ NoPermission: "Tu n'as pas la permission d'éxecuter cette commande !"
 AlreadyOnGame: "Tu es déjà en jeux !"
 #Message sent when no kits have been configured
 NoneKits: "Il n'y a aucun kits !"
+#Message sent when the command send by the player is disable
+CommandDisabled: "Cette commande est désactivé !"
 
 #Messages sent when the command is a success
 SuccessSetSpawn: "Tu viens de d'ajouter un spawn !"
@@ -30,3 +32,15 @@ SuccessSetKit: "Tu viens d'ajouter un kit !"
 SuccessSetLobby: "Tu viens de set le nouveau lobby !"
 SuccessSelectKit: "Tu viens avec succès de sélectionner ton kit !"
 SuccessReload: "Tu viens de reload le plugin !"
+
+#Messages sent when the command is executed
+#Variables:
+#%death% = return the number of deaths of the player
+#%kill% = return the number of kill by the player
+#%ratio% = return the player's ration
+StatsMessage:
+  - "---------------------"
+  - "Morts : %death%"
+  - "Kills : %kill%"
+  - "Ratio : %ratio%"
+  - "---------------------"

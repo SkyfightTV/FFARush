@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 public class FFARushPlay {
-    public FFARushPlay(Player player) throws IOException {
+    public static void init(Player player) throws IOException {
         YamlConfiguration spawnConfig = FileManager.getValues().get(Files.Spawn);
         FileManager.reload(Files.Kits);
         YamlConfiguration kitsConfig = FileManager.getValues().get(Files.Kits);
