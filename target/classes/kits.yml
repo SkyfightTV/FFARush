@@ -1,0 +1,67 @@
+default:
+  Content:
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: SANDSTONE
+      amount: 64
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_SWORD
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: TNT
+      amount: 64
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: FLINT_AND_STEEL
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_BOOTS
+  ArmorContent:
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_BOOTS
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_LEGGINGS
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_CHESTPLATE
+    - ==: org.bukkit.inventory.ItemStack
+      v: 2584
+      type: IRON_HELMET
+  ItemMenu: DIAMOND_SWORD
+  Lore: []
+  Permission: N/A
