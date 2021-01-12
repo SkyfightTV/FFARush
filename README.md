@@ -1,4 +1,4 @@
-What is FFARush ?
+    What is FFARush ?
 
 This plugin is designed to work in a free game mode with an auto deletion system of owned blocks and customizable tnt.
 
@@ -6,7 +6,7 @@ It is designed to run on its own server (for the moment anyway).
 
 You can create an infinite number of spawn points, kits and custom inventory at the spawn to make the game as profitable as possible for the player.
 
-How does it work?
+    How does it work?
 
 1. Download the plugin jar and place it in your plugins folder.
 2. Restart the server.
