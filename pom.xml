@@ -6,7 +6,7 @@
 
     <groupId>fr.skyfighttv</groupId>
     <artifactId>FFARush</artifactId>
-    <version>1.0</version>
+    <version>0.2</version>
     <build>
         <plugins>
             <plugin>
