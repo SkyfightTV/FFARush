@@ -40,6 +40,7 @@ public class FFARushKits {
             });
             inventory.addElement(item);
         }
+        player.closeInventory();
         inventory.open(player);
     }
 }
