@@ -75,6 +75,12 @@ public class PlayerListeners implements Listener {
 
             clearInv(player);
 
+            if (!FileManager.getValues().get(Files.Spawn).contains("Lobby")
+                    || FileManager.getValues().get(Files.Spawn).get("Lobby") == null){
+                player.sendMessage("Please set a lobby : /ffarush setlobby");
+                return;
+            }
+
             player.teleport((Location) FileManager.getValues().get(Files.Spawn).get("Lobby"));
         }
     }
