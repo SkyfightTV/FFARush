@@ -41,8 +41,6 @@ public class FFARushPlay {
             player.getInventory().clear();
             player.getInventory().setArmorContents(new ItemStack[0]);
 
-            System.out.println(PlayersManager.getKit(player) + " / " + PlayersManager.getPlayer(player).getString("Kit"));
-
             int emplacement = 0;
             for (Object kit : kitsConfig.getList(PlayersManager.getKit(player) + ".Content")) {
                 if(!(kit == null)) {
